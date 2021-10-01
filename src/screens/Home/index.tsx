@@ -8,10 +8,10 @@ import { Profile } from "../../components/Profile";
 import { styles } from "./styles";
 
 export function Home() {
-  const [category, setCategory] = useState('')
+  const [category, setCategory] = useState('');
 
   function handleCategorySelect(categoryId: string) {
-    category === category ? setCategory('') : setCategory(categoryId);
+    categoryId === category ? setCategory('') : setCategory(categoryId);
   }
 
   return (
