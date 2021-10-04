@@ -8,6 +8,7 @@ import {
 import { styles } from './styles';
 
 import { Avatar } from '../Avatar';
+import { theme } from '../../global/styles/theme';
 
 export type MemberProps = {
   id: string;
@@ -21,6 +22,8 @@ type Props = {
 }
 
 export function Member({ data }: Props) {
+  const { on, primary } = theme.colors;
+  
   const isOnline = data.status === 'online';
 
   return (
@@ -33,15 +36,20 @@ export function Member({ data }: Props) {
         </Text>
 
         <View style={styles.status}>
+          <View
+            style={[
+              styles.bulletStatus,
+              {
+                backgroundColor: isOnline ? on : primary
+              }
+            ]}
+          />
 
           <Text style={styles.nameStatus}>
             {isOnline ? 'Disponível' : 'Ocupado'}
           </Text>
-
         </View>
       </View>
-
-
     </View>
   );
 }
